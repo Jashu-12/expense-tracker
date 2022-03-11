@@ -29,10 +29,11 @@ const ExpenseForm = (props) => {
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
 
+    //Passing the data to newExpense.js (child to parent)
     props.onSaveExpenseData(expenseData);
     //To reset the form input tabs to null/default
     setEnteredTitle("");
@@ -75,6 +76,9 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
